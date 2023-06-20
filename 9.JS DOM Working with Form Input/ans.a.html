@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Validation</title>
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Form Validation Example</h1>
+
+    <form id="myForm" onsubmit="validateForm(event)">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name">
+            <span id="nameError" class="error"></span>
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email">
+            <span id="emailError" class="error"></span>
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password">
+            <span id="passwordError" class="error"></span>
+        </div>
+        <div>
+            <label for="confirmPassword">Confirm Password:</label>
+            <input type="password" id="confirmPassword" name="confirmPassword">
+            <span id="confirmPasswordError" class="error"></span>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        function validateForm(event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Reset error messages
+            resetErrorMessages();
+
+            // Get form input values
+            var nameInput = document.getElementById("name").value.trim();
+            var emailInput = document.getElementById("email").value.trim();
+            var passwordInput = document.getElementById("password").value;
+            var confirmPasswordInput = document.getElementById("confirmPassword").value;
+
+            // Validate Name field
+            if (nameInput === "") {
+                displayError("nameError", "Name is required.");
+            } else if (!/^[a-zA-Z]+$/.test(nameInput)) {
+                displayError("nameError", "Name should contain only letters.");
+            }
+
+            // Validate Email field
+            if (emailInput === "") {
+                displayError("emailError", "Email is required.");
+            } else if (!isValidEmail(emailInput)) {
+                displayError("emailError", "Invalid email address.");
+            }
+
+            // Validate Password field
+            if (passwordInput === "") {
+                displayError("passwordError", "Password is required.");
+            } else if (passwordInput.length < 8) {
+                displayError("passwordError", "Password should have a minimum length of 8 characters.");
+            } else if (!/[a-z]/.test(passwordInput) || !/[A-Z]/.test(passwordInput) || !/\d/.test(passwordInput)) {
+                displayError("passwordError", "Password should contain at least one uppercase letter, one lowercase letter, and one digit.");
+            }
+
+            // Validate Confirm Password field
+            if (confirmPasswordInput === "") {
+                displayError("confirmPasswordError", "Confirm Password is required.");
+            } else if (confirmPasswordInput !== passwordInput) {
+                displayError("confirmPasswordError", "Passwords do not match.");
+            }
+
+            // If all fields are valid, submit the form
+            if (!hasErrors()) {
+                document.getElementById("myForm").submit();
+            }
+        }
+
+        // Helper function to display error messages
+        function displayError(elementId, errorMessage) {
+            document.getElementById(elementId).textContent = errorMessage;
+        }
+
+        // Helper function to reset error messages
+        function resetErrorMessages() {
+            var errorElements = document.getElementsByClassName("error");
+            for (var i = 0; i < errorElements.length; i++) {
+                errorElements[i].textContent = "";
+            }
+        }
+
+        // Helper function to check if any error messages are present
+        function hasErrors() {
+            var errorElements = document.getElementsByClassName("error");
+            for (var i = 0; i < errorElements.length; i++) {
+                if (errorElements[i].textContent !== "") {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        // Helper function to validate email address using regex
+        function isValidEmail(email) {
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+    </script>
+</body>
+</html>

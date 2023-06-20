@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Key Code Display</title>
+   
+</head>
+<body onkeypress="displayKeyCode(event)">
+    <h1>Press any key on the keyboard</h1>
+
+    <script>
+        function displayKeyCode(event) {
+            var keyCode = event.keyCode || event.which;
+            alert("Pressed key code: " + keyCode);
+        }
+    </script>
+</body>
+</html>

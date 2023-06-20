@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Day of the Week Example</title>
+</head>
+<body>
+  <button id="getDayBtn">Get Day of the Week</button>
+  <p id="dayOfWeek"></p>
+
+  <script>
+    // Get references to the button and dayOfWeek paragraph
+    var getDayBtn = document.getElementById("getDayBtn");
+    var dayOfWeekParagraph = document.getElementById("dayOfWeek");
+    
+    // Add event listener to the button
+    getDayBtn.addEventListener("click", function() {
+      // Create a new Date object with the current date
+      var currentDate = new Date();
+      
+      // Get the day of the week (0 = Sunday, 1 = Monday, etc.)
+      var dayOfWeek = currentDate.getDay();
+      
+      // Array to map the day of the week to its corresponding name
+      var daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+      
+      // Display the day of the week in the paragraph
+      dayOfWeekParagraph.textContent = "Today is " + daysOfWeek[dayOfWeek];
+    });
+  </script>
+</body>
+</html>

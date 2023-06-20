@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Element & Append Element</title>
+</head>
+<body>
+    <h1>Unordered List Example</h1>
+
+    <ul id="myList"></ul>
+
+    <script>
+        // Get reference to the unordered list element
+        var myList = document.getElementById("myList");
+
+        // Function to create and append list items with sequential numbers
+        function createListItems() {
+            for (var i = 1; i <= 5; i++) {
+                // Create a new list item element
+                var listItem = document.createElement("li");
+
+                // Set the text content of the list item
+                listItem.textContent = "Item " + i;
+
+                // Append the list item to the unordered list
+                myList.appendChild(listItem);
+            }
+        }
+
+        // Call the function to create and append list items
+        createListItems();
+    </script>
+</body>
+</html>

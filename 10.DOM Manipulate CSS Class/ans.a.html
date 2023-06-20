@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DOM Manipulation</title>
+    <style>
+        .highlight {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>DOM Manipulation Example</h1>
+
+    <button id="myButton">Click Me</button>
+    <p id="myParagraph">This is a paragraph.</p>
+
+    <script>
+        // Get references to the button and paragraph elements
+        var button = document.getElementById("myButton");
+        var paragraph = document.getElementById("myParagraph");
+
+        // Add event listener to the button
+        button.addEventListener("click", highlightParagraph);
+
+        // Function to handle button click event
+        function highlightParagraph() {
+            // Toggle the 'highlight' class on the paragraph element
+            paragraph.classList.toggle("highlight");
+        }
+    </script>
+</body>
+</html>

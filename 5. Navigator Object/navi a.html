@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Browser Detection</title>
+ 
+</head>
+<body>
+  <button onclick="detectBrowser()">Detect Browser</button>
+
+
+  <script>
+    function detectBrowser() {
+      var browserName = navigator.userAgent;
+      var browserVersion = navigator.appVersion;
+
+      alert("Browser Name: " + browserName);
+      alert("Browser Version: " + browserVersion);
+    }
+  </script>
+</body>
+</html>

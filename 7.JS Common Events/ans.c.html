@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Source Change</title>
+    <style>
+        img {
+            width: 300px;
+            height: 300px;
+            transition: transform 0.5s;
+        }
+        
+        img:hover {
+            transform: scale(1.1);
+        }
+    </style>
+    
+</head>
+<body>
+    <h1>Move the mouse over the image</h1>
+    <img id="myImage" src="image/weq.jpg" onmouseover="changeImageSource()" alt="Original Image">
+
+    <script>
+        function changeImageSource() {
+            var image = document.getElementById("myImage");
+            image.src = "image/blogger (1).jpg";  
+        }
+    </script>
+</body>
+</html>

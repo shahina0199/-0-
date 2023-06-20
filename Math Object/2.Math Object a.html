@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+<script>
+
+   function calculateSquareRoot(arr) {
+  var sumOfSquares = 0;
+  
+  for (var i = 0; i < arr.length; i++) {
+    sumOfSquares += Math.pow(arr[i], 2);
+  }
+  
+  return Math.sqrt(sumOfSquares);
+}
+
+// Example usage
+var numbers = [3, 4, 5];
+var result = calculateSquareRoot(numbers);
+console.log(result); // Output: 7.0710678118654755
+
+
+
+</script>
+    
+</body>
+</html>
